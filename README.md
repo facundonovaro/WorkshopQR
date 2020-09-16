@@ -44,8 +44,11 @@ Requisitos para realizar la integración:
 
 
 
-#Consideraciones de Workshop
+## Consideraciones de Workshop
 
 Hay 2 archivos que necesitarán modificar para lograr resolver el ejercicio:
-1. api > index.js
-2. config > properties.config
+
+1. config > properties.config
+Para completar este archivo, es necesario crear un usuario de prueba, una sucursal y una caja.
+2. api > index.js
+Completar en este archivo las variables definidas en XXX. Verán todo explicado en los comentarios del código. 
