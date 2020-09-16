@@ -53,10 +53,10 @@
             dataType: 'json', 
             data: JSON.stringify(orderData),
             success: function(data) {
-                if ( data.order.external_reference ) {
+                if ( data.external_reference ) {
                     document.getElementById('create_button').setAttribute('hidden', false);
                     document.getElementById('cancel_button').removeAttribute('hidden');
-                    startStatusPolling(data.order.external_reference);
+                    startStatusPolling(data.external_reference);
                 }
             },
             error: function (data) {

@@ -5,10 +5,6 @@ const util = require('util');
 const propertiesReader = require('properties-reader');
 const properties = propertiesReader('./config/properties.conf');
 
-/**
- * In-memory "database" for storing each order status by his external reference id.
- * (Real database implementation required on production)
- */
 var db = [];
 
 const ACCESS_TOKEN = properties.get('access_token'),
@@ -21,9 +17,8 @@ const ACCESS_TOKEN = properties.get('access_token'),
     MP_ORDERDELETE_URL = properties.get('mp_order_basepath') + XXX + '/stores/' + XXX + '/XXX/' + XXX + '/orders' + '?access_token=' + XXX,
     MP_MERCHANT_URL = properties.get('mp_merchant_basepath') + '%d?access_token=' + ACCESS_TOKEN;
 
-/**
- * This resource creates an instore order for item payment
- */
+
+/**Creación de una orden */
 router.post('/order', (req, res) => {
 
     /** Usar las siguientes constantes para el JSON de la orden */
@@ -46,6 +41,7 @@ router.post('/order', (req, res) => {
             /**Ingresar aqui el JSON para publicar una orden con las constantes mencionadas mas arriba */
         }
     }
+    console.log(options);
 
     request(options, function(err, response, body) {
 
@@ -64,9 +60,9 @@ router.post('/order', (req, res) => {
     });
 });
 
-/**
- * This resource cancel an instore order
- */
+
+/** Eliminación de una orden */
+
 router.delete('/order', (req, res) => {
     /**Ingresar en el XXX la variable(url) para eliminar una orden (pista: ya la declaramos previamente) */
     request.delete(XXX, function(err, response, body) {
@@ -83,7 +79,7 @@ router.delete('/order', (req, res) => {
 });
 
 /**
- * This resource receives MP notifications for each order update, then retrieve and store its current status. 
+ * Notificaciones
  */
 router.post('/notification', (req, res) => {
     if (req.query.topic === 'merchant_order') {
@@ -113,7 +109,7 @@ router.post('/notification', (req, res) => {
 });
 
 /**
- * This resource returns an order last known status
+ * Obtención del status de la orden
  */
 router.get('/status', (req, res) => {
     const externalReference = req.query.external_reference;
