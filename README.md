@@ -49,6 +49,6 @@ Requisitos para realizar la integración:
 Hay 2 archivos que necesitarán modificar para lograr resolver el ejercicio:
 
 1. config > properties.config
-Para completar este archivo, es necesario crear un usuario de prueba, una sucursal y una caja.
+<br> Para completar este archivo, es necesario crear un usuario de prueba, una sucursal y una caja.
 2. api > index.js
-Completar en este archivo las variables definidas en XXX. Verán todo explicado en los comentarios del código. 
+<br> Completar en este archivo las variables definidas en XXX. Verán todo explicado en los comentarios del código. 
